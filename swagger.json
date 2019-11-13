@@ -1,0 +1,814 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "JOB PET",
+    "description": "API de acesso restrito para as funcionalidades do projeto JOB PET ",
+    "license": {
+      "name": "MIT",
+      "url": "https://opensource.org/licenses/MIT"
+    },
+    "contact": {
+      "email": "apiteam@swagger.io"
+    },
+    "host": "localhost:3000",
+    "basePath": "",
+    "produces": [
+      "application/json",
+      "application/xml"
+    ],
+    "tags": [
+      {
+        "name": "pet",
+        "description": "Everything about your Pets",
+        "externalDocs": {
+          "description": "Find out more",
+          "url": "http://swagger.io"
+        }
+      },
+      {
+        "name": "store",
+        "description": "Access to Petstore orders"
+      },
+      {
+        "name": "user",
+        "description": "Operations about user",
+        "externalDocs": {
+          "description": "Find out more about our store",
+          "url": "http://swagger.io"
+        }
+      }
+    ],
+    "schemes": [
+      "http",
+      "https"
+    ]
+  },
+  "paths": {
+    "/professional": {
+      "post": {
+        "tags": [
+          "professional"
+        ],
+        "summary": "Add a new professional",
+        "description": "",
+        "operationId": "",
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
+        "produces": [
+          "application/xml",
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "formData",
+            "name": "photo",
+            "type": "file",
+            "description": "The file to upload."
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Pet object that needs to be added to the store",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Professional"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "SUCCESS"
+          },
+          "400": {
+            "description": "BAD REQUEST"
+          },
+          "500": {
+            "description": "INTERNAL SERVER ERROR"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "professional"
+        ],
+        "summary": "find professional",
+        "description": "",
+        "operationId": "",
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
+        "produces": [
+          "application/xml",
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "id of professional to return",
+            "type": "string"
+          },
+          {
+            "name": "full_name",
+            "in": "query",
+            "description": "full_name of professional to return",
+            "type": "string"
+          },
+          {
+            "name": "email",
+            "in": "query",
+            "description": "E-mail of professional to return",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/Professional"
+            }
+          },
+          "400": {
+            "description": "Invalid ID supplied"
+          },
+          "404": {
+            "description": "Professional not found"
+          }
+        },
+        "security": [
+          {
+            "x-access-token": []
+          }
+        ]
+      },
+      "put": {
+        "tags": [
+          "professional"
+        ],
+        "summary": "update professional",
+        "description": "",
+        "operationId": "",
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
+        "produces": [
+          "application/xml",
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "formData",
+            "name": "photo",
+            "type": "file",
+            "description": "The file to upload."
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "description": "id of professional to return",
+            "type": "string",
+            "required": true
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Pet object that needs to be added to the store",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Professional"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/Professional"
+            }
+          },
+          "400": {
+            "description": "Invalid ID supplied"
+          },
+          "404": {
+            "description": "Professional not found"
+          }
+        },
+        "security": [
+          {
+            "x-access-token": []
+          }
+        ]
+      }
+    },
+    "/professional/professional_experience": {
+      "get": {
+        "tags": [
+          "professional"
+        ],
+        "summary": "find professional",
+        "description": "",
+        "operationId": "",
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
+        "produces": [
+          "application/xml",
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "description",
+            "in": "query",
+            "description": "description of professional to return",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/Professional"
+            }
+          },
+          "400": {
+            "description": "Invalid ID supplied"
+          },
+          "404": {
+            "description": "Professional not found"
+          }
+        },
+        "security": [
+          {
+            "x-access-token": []
+          }
+        ]
+      }
+    },
+    "/company": {
+      "post": {
+        "tags": [
+          "Company"
+        ],
+        "summary": "Add a new Company",
+        "description": "",
+        "operationId": "",
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
+        "produces": [
+          "application/xml",
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "formData",
+            "name": "photo",
+            "type": "file",
+            "description": "The file to upload."
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Company object that needs to be added to the store",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Company"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "SUCCESS"
+          },
+          "400": {
+            "description": "BAD REQUEST"
+          },
+          "500": {
+            "description": "INTERNAL SERVER ERROR"
+          }
+        }
+      }
+    },
+    "/login": {
+      "post": {
+        "tags": [
+          "authentication"
+        ],
+        "summary": "Login professional or Company",
+        "description": "Generate Access Token ",
+        "operationId": "",
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
+        "produces": [
+          "application/xml",
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Pet object that needs to be added to the store",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "SUCCESS"
+          },
+          "400": {
+            "description": "BAD REQUEST"
+          },
+          "500": {
+            "description": "INTERNAL SERVER ERROR"
+          }
+        }
+      }
+    },
+    "/job": {
+      "post": {
+        "tags": [
+          "Job"
+        ],
+        "summary": "Job Company",
+        "description": "Create work opportunity ",
+        "operationId": "",
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
+        "produces": [
+          "application/xml",
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Pet object that needs to be added to the store",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Job"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "SUCCESS"
+          },
+          "400": {
+            "description": "BAD REQUEST"
+          },
+          "401": {
+            "description": "UNAUTHORIZED"
+          },
+          "500": {
+            "description": "INTERNAL SERVER ERROR"
+          }
+        },
+        "security": [
+          {
+            "x-access-token": []
+          }
+        ]
+      }
+    },
+    "/lead":{
+      "post": {
+        "tags": [
+          "Lead"
+        ],
+        "summary": "Add a new Lead",
+        "description": "",
+        "operationId": "",
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
+        "produces": [
+          "application/xml",
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Lead"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "SUCCESS"
+          },
+          "400": {
+            "description": "BAD REQUEST"
+          },
+          "500": {
+            "description": "INTERNAL SERVER ERROR"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Lead"
+        ],
+        "summary": "find Lead Client",
+        "description": "",
+        "operationId": "",
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
+        "produces": [
+          "application/xml",
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "description": "name of client to return",
+            "type": "string"
+          },
+          {
+            "name": "phomne",
+            "in": "query",
+            "description": "phone of client to return",
+            "type": "string"
+          },
+          {
+            "name": "email",
+            "in": "query",
+            "description": "E-mail of client to return",
+            "type": "string"
+          },
+          {
+            "name": "perPage",
+            "in": "query",
+            "description": "perPage",
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "page",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/Lead"
+            }
+          },
+          "400": {
+            "description": "Invalid ID supplied"
+          },
+          "404": {
+            "description": "Professional not found"
+          }
+        }
+      }
+    }
+  },
+  "securityDefinitions": {
+    "x-access-token": {
+      "type": "apiKey",
+      "name": "x-access-token",
+      "in": "header"
+    }
+  },
+  "definitions": {
+    "Professional": {
+      "type": "object",
+      "properties": {
+        "full_name": {
+          "type": "string",
+          "required": true
+        },
+        "birth_date": {
+          "type": "string",
+          "format": "date"
+        },
+        "gender": {
+          "type": "string",
+          "description": "Gender",
+          "enum": [
+            "male",
+            "female",
+            "other"
+          ]
+        },
+        "marital_status": {
+          "type": "string",
+          "description": "Matrial Status",
+          "enum": [
+            "single",
+            "married",
+            "widower",
+            "divorcied"
+          ]
+        },
+        "email": {
+          "type": "string",
+          "required": true
+        },
+        "password": {
+          "type": "string",
+          "required": true
+        },
+        "address": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Address"
+          }
+        },
+        "document": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Document_PF"
+          }
+        },
+        "contact": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Contact"
+          }
+        },
+        "photo_profile": {
+          "type": "string"
+        },
+        "professional_experience":{
+          "type": "array",
+          "items":{
+            "$ref": "#/definitions/professionalExperience"
+          }
+        }
+      }
+    },
+    "Address": {
+      "type": "object",
+      "properties": {
+        "postal_code": {
+          "type": "string",
+          "required": true
+        },
+        "street": {
+          "type": "string",
+          "required": true
+        },
+        "number": {
+          "type": "string"
+        },
+        "neighborhood": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        },
+        "state": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        },
+        "localtion": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": [
+                "Point"
+              ]
+            },
+            "coordinates": {
+              "type": "array",
+              "items": {
+                "type": "number",
+                "format": "int64"
+              }
+            }
+          }
+        },
+        "complement": {
+          "type": "string"
+        }
+      }
+    },
+    "Document_PF": {
+      "type": "object",
+      "properties": {
+        "type_document": {
+          "type": "string",
+          "enum": [
+            "rg",
+            "cpf",
+            "ctps",
+            "cnh"
+          ]
+        },
+        "number": {
+          "type": "string"
+        }
+      }
+    },
+    "User": {
+      "type": "object",
+      "properties": {
+        "username": {
+          "type": "string",
+          "required": true
+        },
+        "password": {
+          "type": "string",
+          "required": true
+        },
+        "account": {
+          "type": "string",
+          "required": true
+        }
+      }
+    },
+    "Job": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string",
+          "required": true
+        },
+        "description": {
+          "type": "string",
+          "required": true
+        },
+        "experience": {
+          "type": "string",
+          "required": true
+        },
+        "reference": {
+          "type": "string",
+          "required": true
+        },
+        "salary": {
+          "type": "number",
+          "format": "float",
+          "required": true
+        },
+        "gender": {
+          "type": "string",
+          "enum": [
+            "male",
+            "female",
+            "any"
+          ]
+        },
+        "type": {
+          "type": "string",
+          "required": true
+        }
+      }
+    },
+    "Company": {
+      "type": "object",
+      "properties": {
+        "trading_name": {
+          "type": "string",
+          "required": true
+        },
+        "company_name": {
+          "type": "string",
+          "required": true
+        },
+        "email": {
+          "type": "string",
+          "required": true
+        },
+        "password": {
+          "type": "string",
+          "required": true
+        },
+        "address": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Address"
+          }
+        },
+        "contact": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Contact"
+          }
+        },
+        "photos":{
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/photo"
+          }
+        }
+      }
+    },
+    "Contact": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "required": true
+        },
+        "value": {
+          "type": "string",
+          "required": true
+        }
+      }
+    },
+    "professionalExperience": {
+      "type": "object",
+      "properties": {
+        "date_start": {
+          "type": "string",
+          "format": "date",
+          "required": true
+        },
+        "isCurrent": {
+          "type": "boolean"
+        },
+        "date_end": {
+          "type": "string",
+          "format": "date"
+        },
+        "company": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "ObjectId": {
+              "type": "string"
+            },
+            "references": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string"
+                },
+                "value": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "title_function": {
+          "type": "string"
+        },
+        "description_function": {
+          "type": "string"
+        }
+      }
+    },
+    "photo":{
+      "type":"object",
+      "properties":{
+        "name": {
+          "type": "string",
+          "required":true
+        },
+        "url":{
+          "type":"string",
+          "required":true
+        }
+      }
+    },
+    "Lead":{
+      "type":"object",
+      "properties":{
+        "name": {
+          "type": "string",
+          "required":true
+        },
+        "email":{
+          "type":"string",
+          "required":true
+        },
+        "phone":{
+          "type":"string",
+          "required":true
+        }
+      }
+    }
+  }
+}
